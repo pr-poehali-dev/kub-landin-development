@@ -162,7 +162,7 @@ const Index = () => {
                 <div className="text-center">
                   <Icon name="Megaphone" size={48} className="text-orange-500 mx-auto mb-3" />
                   <h4 className={`font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Реклама</h4>
-                  <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-slate-600'}`}>Баннеры в приложении</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-slate-600'}`}>Баннерная реклама в приложении и на сайте</p>
                 </div>
                 <div className="text-center">
                   <Icon name="Warehouse" size={48} className="text-orange-500 mx-auto mb-3" />
