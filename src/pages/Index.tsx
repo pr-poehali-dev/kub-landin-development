@@ -240,7 +240,7 @@ const Index = () => {
                     <Icon name="Store" size={40} className="text-orange-500" />
                   </div>
                   <CardTitle className={`text-2xl ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Маркетплейс</CardTitle>
-                  <CardDescription className={isDarkMode ? 'text-gray-400' : 'text-slate-600'}>Магазины и материалы</CardDescription>
+                  <CardDescription className={isDarkMode ? 'text-gray-400' : 'text-slate-600'}>Магазины, производители, материалы и инструменты</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className={`space-y-3 ${isDarkMode ? 'text-gray-300' : 'text-slate-600'}`}>
