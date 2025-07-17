@@ -282,6 +282,63 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Competitive Advantages */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-16">Конкурентные преимущества</h2>
+            
+            <div className="bg-slate-800 rounded-2xl p-8 overflow-x-auto">
+              <div className="min-w-full">
+                <div className="grid grid-cols-3 gap-4 mb-6">
+                  <div className="font-bold text-lg text-orange-500">Критерий</div>
+                  <div className="font-bold text-lg text-orange-500">КУБ</div>
+                  <div className="font-bold text-lg text-orange-500">Существующие решения</div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                    <div className="font-semibold text-white">Формат</div>
+                    <div className="text-green-400">Горизонтальная строительная экосистема</div>
+                    <div className="text-gray-400">Узкопрофильные доски и порталы</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                    <div className="font-semibold text-white">Подрядчики</div>
+                    <div className="text-green-400">Проверенные, с отзывами и рейтингом</div>
+                    <div className="text-gray-400">Часто без верификации</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                    <div className="font-semibold text-white">Поддержка пользователей</div>
+                    <div className="text-green-400">CRM, личный кабинет, прозрачность</div>
+                    <div className="text-gray-400">Почта, звонки, PDF-договоры</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                    <div className="font-semibold text-white">Маркетплейс</div>
+                    <div className="text-green-400">API-интеграция с магазинами и складами</div>
+                    <div className="text-gray-400">Каталоги без цен или остатков</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                    <div className="font-semibold text-white">Реклама и монетизация</div>
+                    <div className="text-green-400">Подписка, комиссия, тендеры</div>
+                    <div className="text-gray-400">Только размещение</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                    <div className="font-semibold text-white">Склады и логистика</div>
+                    <div className="text-green-400">Физические распределительные хабы</div>
+                    <div className="text-gray-400">Не предусмотрено</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Invest */}
       <section className="py-20 bg-slate-800/50">
         <div className="container mx-auto px-6">
