@@ -16,6 +16,8 @@ const Index = () => {
     investment: ''
   });
 
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -23,8 +25,12 @@ const Index = () => {
     });
   };
 
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-900'}`}>
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-sm bg-slate-900/80 border-b border-slate-800">
         <div className="container mx-auto px-6 py-4">
@@ -35,9 +41,19 @@ const Index = () => {
               </div>
               <span className="text-2xl font-bold">КУБ</span>
             </div>
-            <Button className="bg-orange-600 hover:bg-orange-700 text-white">
-              Стать инвестором
-            </Button>
+            <div className="flex items-center space-x-4">
+              <Button
+                onClick={toggleTheme}
+                variant="ghost"
+                size="sm"
+                className="p-2 hover:bg-slate-800 transition-colors"
+              >
+                <Icon name={isDarkMode ? "Sun" : "Moon"} size={20} />
+              </Button>
+              <Button className="bg-orange-600 hover:bg-orange-700 hover:scale-105 text-white transform transition-all duration-300">
+                Стать инвестором
+              </Button>
+            </div>
           </nav>
         </div>
       </header>
@@ -49,20 +65,20 @@ const Index = () => {
             <Badge className="mb-6 bg-orange-600/20 text-orange-300 border-orange-600/30">
               Инвестиционный раунд открыт
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent animate-fade-in">
               Первый маркетплейс<br />
               строительной отрасли<br />
               в России
             </h1>
-            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 mb-12 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.3s'}}>
               Мы строим AMAZON, но для строительства и ремонта. Это маркетплейс, CRM, 
               тендеры, склады, логистика и мобильное приложение — в одном месте.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-6 text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: '0.6s'}}>
+              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 hover:scale-105 text-white px-8 py-6 text-lg transform transition-all duration-300 shadow-lg hover:shadow-xl">
                 Инвестировать от 5 млн ₽
               </Button>
-              <Button size="lg" variant="outline" className="border-slate-600 text-white hover:bg-slate-800 px-8 py-6 text-lg">
+              <Button size="lg" variant="outline" className="border-slate-600 text-white hover:bg-slate-800 hover:scale-105 px-8 py-6 text-lg transform transition-all duration-300 shadow-lg hover:shadow-xl">
                 Скачать презентацию
               </Button>
             </div>
@@ -288,7 +304,8 @@ const Index = () => {
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-16">Конкурентные преимущества</h2>
             
-            <div className="bg-slate-800 rounded-2xl p-8 overflow-x-auto">
+            {/* Desktop Table */}
+            <div className="hidden md:block bg-slate-800 rounded-2xl p-8 overflow-x-auto">
               <div className="min-w-full">
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="font-bold text-lg text-orange-500">Критерий</div>
@@ -297,41 +314,140 @@ const Index = () => {
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/70 transition-colors">
                     <div className="font-semibold text-white">Формат</div>
                     <div className="text-green-400">Горизонтальная строительная экосистема</div>
                     <div className="text-gray-400">Узкопрофильные доски и порталы</div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/70 transition-colors">
                     <div className="font-semibold text-white">Подрядчики</div>
                     <div className="text-green-400">Проверенные, с отзывами и рейтингом</div>
                     <div className="text-gray-400">Часто без верификации</div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/70 transition-colors">
                     <div className="font-semibold text-white">Поддержка пользователей</div>
                     <div className="text-green-400">CRM, личный кабинет, прозрачность</div>
                     <div className="text-gray-400">Почта, звонки, PDF-договоры</div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/70 transition-colors">
                     <div className="font-semibold text-white">Маркетплейс</div>
                     <div className="text-green-400">API-интеграция с магазинами и складами</div>
                     <div className="text-gray-400">Каталоги без цен или остатков</div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/70 transition-colors">
                     <div className="font-semibold text-white">Реклама и монетизация</div>
                     <div className="text-green-400">Подписка, комиссия, тендеры</div>
                     <div className="text-gray-400">Только размещение</div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg">
+                  <div className="grid grid-cols-3 gap-4 p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/70 transition-colors">
                     <div className="font-semibold text-white">Склады и логистика</div>
                     <div className="text-green-400">Физические распределительные хабы</div>
                     <div className="text-gray-400">Не предусмотрено</div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Cards */}
+            <div className="md:hidden space-y-4">
+              <div className="bg-slate-800 rounded-2xl p-6">
+                <div className="font-bold text-lg text-orange-500 mb-4">Формат</div>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <Icon name="Check" size={16} className="text-green-400 mr-2" />
+                    <span className="text-green-400 font-semibold">КУБ:</span>
+                  </div>
+                  <p className="text-green-400 text-sm">Горизонтальная строительная экосистема</p>
+                  <div className="flex items-center">
+                    <Icon name="X" size={16} className="text-gray-400 mr-2" />
+                    <span className="text-gray-400 font-semibold">Конкуренты:</span>
+                  </div>
+                  <p className="text-gray-400 text-sm">Узкопрофильные доски и порталы</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-6">
+                <div className="font-bold text-lg text-orange-500 mb-4">Подрядчики</div>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <Icon name="Check" size={16} className="text-green-400 mr-2" />
+                    <span className="text-green-400 font-semibold">КУБ:</span>
+                  </div>
+                  <p className="text-green-400 text-sm">Проверенные, с отзывами и рейтингом</p>
+                  <div className="flex items-center">
+                    <Icon name="X" size={16} className="text-gray-400 mr-2" />
+                    <span className="text-gray-400 font-semibold">Конкуренты:</span>
+                  </div>
+                  <p className="text-gray-400 text-sm">Часто без верификации</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-6">
+                <div className="font-bold text-lg text-orange-500 mb-4">Поддержка пользователей</div>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <Icon name="Check" size={16} className="text-green-400 mr-2" />
+                    <span className="text-green-400 font-semibold">КУБ:</span>
+                  </div>
+                  <p className="text-green-400 text-sm">CRM, личный кабинет, прозрачность</p>
+                  <div className="flex items-center">
+                    <Icon name="X" size={16} className="text-gray-400 mr-2" />
+                    <span className="text-gray-400 font-semibold">Конкуренты:</span>
+                  </div>
+                  <p className="text-gray-400 text-sm">Почта, звонки, PDF-договоры</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-6">
+                <div className="font-bold text-lg text-orange-500 mb-4">Маркетплейс</div>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <Icon name="Check" size={16} className="text-green-400 mr-2" />
+                    <span className="text-green-400 font-semibold">КУБ:</span>
+                  </div>
+                  <p className="text-green-400 text-sm">API-интеграция с магазинами и складами</p>
+                  <div className="flex items-center">
+                    <Icon name="X" size={16} className="text-gray-400 mr-2" />
+                    <span className="text-gray-400 font-semibold">Конкуренты:</span>
+                  </div>
+                  <p className="text-gray-400 text-sm">Каталоги без цен или остатков</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-6">
+                <div className="font-bold text-lg text-orange-500 mb-4">Реклама и монетизация</div>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <Icon name="Check" size={16} className="text-green-400 mr-2" />
+                    <span className="text-green-400 font-semibold">КУБ:</span>
+                  </div>
+                  <p className="text-green-400 text-sm">Подписка, комиссия, тендеры</p>
+                  <div className="flex items-center">
+                    <Icon name="X" size={16} className="text-gray-400 mr-2" />
+                    <span className="text-gray-400 font-semibold">Конкуренты:</span>
+                  </div>
+                  <p className="text-gray-400 text-sm">Только размещение</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-6">
+                <div className="font-bold text-lg text-orange-500 mb-4">Склады и логистика</div>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <Icon name="Check" size={16} className="text-green-400 mr-2" />
+                    <span className="text-green-400 font-semibold">КУБ:</span>
+                  </div>
+                  <p className="text-green-400 text-sm">Физические распределительные хабы</p>
+                  <div className="flex items-center">
+                    <Icon name="X" size={16} className="text-gray-400 mr-2" />
+                    <span className="text-gray-400 font-semibold">Конкуренты:</span>
+                  </div>
+                  <p className="text-gray-400 text-sm">Не предусмотрено</p>
                 </div>
               </div>
             </div>
@@ -506,7 +622,7 @@ const Index = () => {
                   />
                 </div>
 
-                <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-6 text-lg">
+                <Button className="w-full bg-orange-600 hover:bg-orange-700 hover:scale-105 text-white py-6 text-lg transform transition-all duration-300 shadow-lg hover:shadow-xl">
                   Получить презентацию
                 </Button>
 
