@@ -78,7 +78,7 @@ const Index = () => {
               <Button size="lg" className="bg-orange-600 hover:bg-orange-700 hover:scale-105 text-white px-8 py-6 text-lg transform transition-all duration-300 shadow-lg hover:shadow-xl">
                 Инвестировать от 5 млн ₽
               </Button>
-              <Button size="lg" variant="outline" className={`hover:scale-105 px-8 py-6 text-lg transform transition-all duration-300 shadow-lg hover:shadow-xl ${isDarkMode ? 'border-slate-600 text-white hover:bg-slate-800' : 'border-slate-300 text-slate-900 hover:bg-slate-100'}`}>
+              <Button size="lg" variant="outline" className={`hover:scale-105 px-8 py-6 text-lg transform transition-all duration-300 shadow-lg hover:shadow-xl ${isDarkMode ? 'border-slate-500 text-white hover:bg-slate-800 bg-slate-800/30' : 'border-slate-300 text-slate-900 hover:bg-slate-100'}`}>
                 Скачать презентацию
               </Button>
             </div>
