@@ -67,8 +67,7 @@ const Index = () => {
             </Badge>
             <h1 className={`text-4xl sm:text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r bg-clip-text text-transparent animate-fade-in ${isDarkMode ? 'from-white to-gray-400' : 'from-slate-900 to-slate-600'}`}>
               Первый маркетплейс<br />
-              строительной отрасли<br />
-              в России
+              строительной отрасли в России
             </h1>
             <p className={`text-lg sm:text-xl mb-12 max-w-2xl mx-auto animate-fade-in ${isDarkMode ? 'text-gray-300' : 'text-slate-600'}`} style={{animationDelay: '0.3s'}}>
               Мы строим AMAZON, но для строительства и ремонта. Это маркетплейс, CRM, 
